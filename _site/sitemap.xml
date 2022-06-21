@@ -47,4 +47,8 @@
 <url>
 <loc>http://localhost:4000/posts/page2/</loc>
 </url>
+<url>
+<loc>http://localhost:4000/Resume.pdf</loc>
+<lastmod>2022-06-21T13:47:49-07:00</lastmod>
+</url>
 </urlset>
