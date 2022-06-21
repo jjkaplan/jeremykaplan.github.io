@@ -8,10 +8,10 @@
     .navbar-brand {
         font-weight: 800;
         color: $gray-800;
-        .log_dark{
+        .log-dark{
           display: none;
         }
-        .log_light{
+        .log-light{
           display: inline;
         }
      }
@@ -94,10 +94,10 @@
                 &:hover {
                     color: $primary;
                 }
-                .log_dark{
+                .log-dark{
                   display: inline;
                 }
-                .log_light{
+                .log-light{
                   display: none;
                 }
             }
