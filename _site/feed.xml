@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-31T19:24:41-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journey with Data</title><subtitle>Jamal Kaplan</subtitle><author><name>Jamal Kaplan</name></author><entry><title type="html">Journey starts today</title><link href="http://localhost:4000/2022/06/07/aapstone.html" rel="alternate" type="text/html" title="Journey starts today" /><published>2022-06-07T07:45:13-07:00</published><updated>2022-06-07T07:45:13-07:00</updated><id>http://localhost:4000/2022/06/07/aapstone</id><content type="html" xml:base="http://localhost:4000/2022/06/07/aapstone.html"><![CDATA[<h2 id="this-will-be-another-post">This will be another post</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T11:09:13-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journey with Data</title><subtitle>Jamal Kaplan</subtitle><author><name>Jamal Kaplan</name></author><entry><title type="html">Journey starts today</title><link href="http://localhost:4000/2022/06/07/aapstone.html" rel="alternate" type="text/html" title="Journey starts today" /><published>2022-06-07T07:45:13-07:00</published><updated>2022-06-07T07:45:13-07:00</updated><id>http://localhost:4000/2022/06/07/aapstone</id><content type="html" xml:base="http://localhost:4000/2022/06/07/aapstone.html"><![CDATA[<h2 id="this-will-be-another-post">This will be another post</h2>
 
 <p>The journey starts here
 Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman’s earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
@@ -622,6 +622,9 @@ memory usage: 125.4+ KB
 <span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"lnd_br_price.png"</span><span class="p">)</span>
 </code></pre></div></div>
 
+<!-- <img src ="lnd_br_price.png" style="max-width: 100%;" /> -->
+<h1><img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/lnd_br_price.png" /></h1>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 
 # Average house price over years for Kensington_&amp;_Chelsea
 </span><span class="n">mean</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="n">mdata</span><span class="p">.</span><span class="n">London_Boroughs</span> <span class="o">==</span><span class="s">'Kensington_&amp;_Chelsea'</span><span class="p">].</span><span class="n">Price</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
@@ -639,6 +642,8 @@ memory usage: 125.4+ KB
 <span class="n">plt</span><span class="p">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="mi">9500</span><span class="p">,</span><span class="mi">19521</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">'Ave House Prices'</span><span class="p">);</span>
 <span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'Knes&amp;chelsePRice.png'</span><span class="p">)</span>
 </code></pre></div></div>
+<h1 id="-1"><img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/Knes%26chelsePRice.png" /></h1>
+
 <p><strong>3. Modeling</strong></p>
 
 <p>Consider creating a function that will calculate a ratio of house prices, comparing the price of a house in 2018 to the price in 1998.</p>

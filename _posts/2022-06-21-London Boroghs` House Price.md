@@ -702,6 +702,9 @@ plt.title("Lonodn Boroughs house prices changes over years",fontsize =21)
 plt.savefig("lnd_br_price.png")
 ```
 
+<!-- <img src ="lnd_br_price.png" style="max-width: 100%;" /> -->
+# <img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/lnd_br_price.png"/>
+
 ```python
 # 
 # Average house price over years for Kensington_&_Chelsea
@@ -720,6 +723,9 @@ aspect=2.4
 plt.hlines(mean,9500,19521,label='Ave House Prices');
 plt.savefig('Knes&chelsePRice.png')
 ```
+# <img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/Knes%26chelsePRice.png"/>
+
+
 **3. Modeling**
 
 Consider creating a function that will calculate a ratio of house prices, comparing the price of a house in 2018 to the price in 1998.
