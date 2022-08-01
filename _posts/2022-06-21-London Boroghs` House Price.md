@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Capstone Project 1"
+title: "London Boroghs` House Price."
 subtitle: "The first step towards to Data World."
 date: 2022-06-7 10:45:13 -0400
 background: '/img/posts/01.jpg'
