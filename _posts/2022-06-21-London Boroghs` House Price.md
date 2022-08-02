@@ -267,8 +267,8 @@ plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
 plt.xlabel('Date (Year)', fontsize =21)
 # Set y-axis label
 plt.ylabel('Price (million)', fontsize =21)
-plt.title("Lonodn Boroughs house prices changes over years",fontsize =21)
-plt.savefig("lnd_br_price.png")
+plt.title("Lonodn Boroughs house prices changes over years",fontsize =21);
+
 ```
 
 <!-- <img src ="lnd_br_price.png" style="max-width: 100%;" /> -->
@@ -290,7 +290,7 @@ aspect=2.4
     xlabel='Date (Year)')
 
 plt.hlines(mean,9500,19521,label='Ave House Prices');
-plt.savefig('Knes&chelsePRice.png')
+
 ```
 # <img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/Knes%26chelsePRice.png"/>
 
@@ -398,7 +398,6 @@ plt.figure(figsize=(12,9))
 ax = top15[['Borough','2018']].plot(kind='bar')
 ax.set_xticklabels(top15.Borough)
 
-plt.savefig('top115.jpg')
 plt.show();
 ```
 

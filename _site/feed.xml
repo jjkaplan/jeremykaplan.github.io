@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T16:59:45-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journey with Data</title><subtitle>Jamal Kaplan</subtitle><author><name>Jamal Kaplan</name></author><entry><title type="html">Journey starts today</title><link href="http://localhost:4000/2022/06/07/aapstone.html" rel="alternate" type="text/html" title="Journey starts today" /><published>2022-06-07T07:45:13-07:00</published><updated>2022-06-07T07:45:13-07:00</updated><id>http://localhost:4000/2022/06/07/aapstone</id><content type="html" xml:base="http://localhost:4000/2022/06/07/aapstone.html"><![CDATA[<h2 id="this-will-be-another-post">This will be another post</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T17:01:48-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journey with Data</title><subtitle>Jamal Kaplan</subtitle><author><name>Jamal Kaplan</name></author><entry><title type="html">Journey starts today</title><link href="http://localhost:4000/2022/06/07/aapstone.html" rel="alternate" type="text/html" title="Journey starts today" /><published>2022-06-07T07:45:13-07:00</published><updated>2022-06-07T07:45:13-07:00</updated><id>http://localhost:4000/2022/06/07/aapstone</id><content type="html" xml:base="http://localhost:4000/2022/06/07/aapstone.html"><![CDATA[<h2 id="this-will-be-another-post">This will be another post</h2>
 
 <p>The journey starts here
 Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman’s earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
@@ -212,8 +212,8 @@ The strings that don’t belong:</p>
 </span><span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Date (Year)'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span><span class="mi">21</span><span class="p">)</span>
 <span class="c1"># Set y-axis label
 </span><span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Price (million)'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span><span class="mi">21</span><span class="p">)</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Lonodn Boroughs house prices changes over years"</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span><span class="mi">21</span><span class="p">)</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"lnd_br_price.png"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Lonodn Boroughs house prices changes over years"</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span><span class="mi">21</span><span class="p">);</span>
+
 </code></pre></div></div>
 
 <!-- <img src ="lnd_br_price.png" style="max-width: 100%;" /> -->
@@ -234,7 +234,7 @@ The strings that don’t belong:</p>
     <span class="n">xlabel</span><span class="o">=</span><span class="s">'Date (Year)'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="p">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="mi">9500</span><span class="p">,</span><span class="mi">19521</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">'Ave House Prices'</span><span class="p">);</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'Knes&amp;chelsePRice.png'</span><span class="p">)</span>
+
 </code></pre></div></div>
 <h1 id="-1"><img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/Knes%26chelsePRice.png" /></h1>
 
@@ -328,7 +328,6 @@ The strings that don’t belong:</p>
 </span><span class="n">ax</span> <span class="o">=</span> <span class="n">top15</span><span class="p">[[</span><span class="s">'Borough'</span><span class="p">,</span><span class="s">'2018'</span><span class="p">]].</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">'bar'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">top15</span><span class="p">.</span><span class="n">Borough</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'top115.jpg'</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
 </code></pre></div></div>
 
