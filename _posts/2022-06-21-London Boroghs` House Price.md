@@ -3,12 +3,9 @@ layout: post
 title: "London Boroghs` House Price."
 subtitle: "The first step towards to Data World."
 date: 2022-06-7 10:45:13 -0400
-background: '/img/posts/01.jpg'
+background: '/img/london_borough/back.png'
 
 ---
-
-
-#  Data Exploration Capstone Project 
 
 ## Objectives
 
@@ -20,6 +17,7 @@ A borough is just a fancy word for district. You may be familiar with the five b
 
 
 ### 1. Sourcing and Loading 
+
 
 
 
@@ -99,6 +97,10 @@ Data_copy = Data_copy.drop(0)
 Data_copy.head()
 
 ```
+
+<iframe src = "/img/london_borough/indextable.html" height = "300px" width ="100%"></iframe>
+
+
 
 ### 2. Cleaning, transforming, and visualizing
 The end goal of data cleaning is to have tidy data. When data is tidy: 
@@ -219,7 +221,11 @@ NaNFreeDF1 = NaNFreeDF1[~NaNFreeDF1.London_Borough.isin(nonBoroughs)]
 
 ```python
 NaNFreeDF1.head()
+
 ```
+
+<iframe src = "/img/london_borough/indextc.html" height = "300px" width ="100%"></iframe>
+
 
 ```python
 df = NaNFreeDF1
@@ -244,7 +250,12 @@ ax = camden_prices.plot(kind ='line', x = 'Month', y='Average_price')
 
 # Finally, call the set_ylabel() method on ax, and set that label to the string: 'Price'. 
 ax.set_ylabel('Price')
+ax.set_xlabel('Year')
+ax.set_title("Camden`s House Price Change Over the Year")
+plt.savefig("CamdanPrice.png")
 ```
+
+# <img src="/img/london_borough/CamdanPrice.png" height ="350px" width="100%"/>
 
 ```python
 import seaborn as sns
@@ -273,26 +284,6 @@ plt.title("Lonodn Boroughs house prices changes over years",fontsize =21);
 
 <!-- <img src ="lnd_br_price.png" style="max-width: 100%;" /> -->
 # <img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/lnd_br_price.png"/>
-
-```python
-# 
-# Average house price over years for Kensington_&_Chelsea
-mean = mdata[mdata.London_Boroughs =='Kensington_&_Chelsea'].Price.mean()
-
-# Plottting Average house price channges over years for Kensington_&_Chelsea against to average price
-sns.relplot(
-    data= mdata[mdata.London_Boroughs =='Kensington_&_Chelsea'], kind="line",
-    x="Date", y="Price",
-aspect=2.4
-).set(
-    title="Kensington_&_Chelsea House Prices Against to Average Price", 
-    ylabel='Price (million)',
-    xlabel='Date (Year)')
-
-plt.hlines(mean,9500,19521,label='Ave House Prices');
-
-```
-# <img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/Knes%26chelsePRice.png"/>
 
 
 To limit the amount of temporal data-points you have, it would be useful to extract the year from every value in our Month column. 300 is more datapoints than needed.
@@ -391,18 +382,3 @@ print(top15)
 
 ```
 
-
-```python
-plt.figure(figsize=(12,9))
-#Let's plot the boroughs that have seen the greatest changes in price
-ax = top15[['Borough','2018']].plot(kind='bar')
-ax.set_xticklabels(top15.Borough)
-
-plt.show();
-```
-
-# <img src="https://raw.githubusercontent.com/jamalkaplan/jamalkaplan.github.io/master/img/top115.jpg"/>
-
-```python
-
-```

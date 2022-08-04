@@ -1,0 +1,54 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>id</th>
+      <th>title</th>
+      <th>Bechdel Score</th>
+      <th>imdbid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1356</th>
+      <td>1970</td>
+      <td>255</td>
+      <td>Le Cercle Rouge</td>
+      <td>0</td>
+      <td>0065531</td>
+    </tr>
+    <tr>
+      <th>1357</th>
+      <td>1970</td>
+      <td>583</td>
+      <td>Beyond the Valley of the Dolls</td>
+      <td>3</td>
+      <td>0065466</td>
+    </tr>
+    <tr>
+      <th>1358</th>
+      <td>1970</td>
+      <td>1122</td>
+      <td>AristoCats, The</td>
+      <td>3</td>
+      <td>0065421</td>
+    </tr>
+    <tr>
+      <th>1359</th>
+      <td>1970</td>
+      <td>1726</td>
+      <td>Santa Clause is Comin&amp;#39; to Town</td>
+      <td>1</td>
+      <td>0066327</td>
+    </tr>
+    <tr>
+      <th>1360</th>
+      <td>1970</td>
+      <td>1932</td>
+      <td>Phantom Tollbooth, The</td>
+      <td>1</td>
+      <td>0064806</td>
+    </tr>
+  </tbody>
+</table>

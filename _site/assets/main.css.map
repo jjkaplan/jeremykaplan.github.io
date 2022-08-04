@@ -107,7 +107,7 @@
 	],
 	"sourcesContent": [
 		"@import \"styles\";\n",
-		"// Import Core Clean Blog SCSS\n@import \"../assets/vendor/startbootstrap-clean-blog/scss/styles.scss\";\n@import \"../assets/vendor/syntax-highlight/github.scss\";",
+		"// Import Core Clean Blog SCSS\n@import \"../assets/vendor/startbootstrap-clean-blog/scss/styles.scss\";\n@import \"../assets/vendor/syntax-highlight/github.scss\";\n\n",
 		"// Import variables\n@import \"./variables\";\n\n// Import Bootstrap\n@import \"../../bootstrap/scss/bootstrap\";\n\n// Global CSS\n@import \"./global\";\n\n// Components\n@import \"./components/buttons\";\n@import \"./components/navbar\";\n\n// Sections\n@import \"./sections/contact\";\n@import \"./sections/footer\";\n@import \"./sections/masthead\";\n@import \"./sections/post\";",
 		"@import \"./variables/colors.scss\";\n@import \"./variables/typography.scss\";",
 		"// Custom color variables\n\n$teal: #0085A1;\n\n$primary: $teal;",

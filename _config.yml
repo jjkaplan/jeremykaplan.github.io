@@ -1,13 +1,13 @@
 title:              Journey with Data
-email:              your-email@example.com
-description:        Jamal Kaplan
+email:              kaplanjamall@gmail.com
+description:      The Deeper You Dive, The Clearer You Will See
 author:             Jamal Kaplan
 baseurl:            ""
-url:                "https://jamalkaplan.github.io"
+#url:                "https://jamalkaplan.github.io"
 
 # Social Profiles
 twitter_username:   
-github_username:    
+github_username:    jamalkaplan
 facebook_username:  
 instagram_username:  
 linkedin_username:
@@ -17,6 +17,7 @@ google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
 
 # Build settings
 markdown:           kramdown
+
 paginate:           5
 paginate_path:      "/posts/page:num/"
 plugins:
