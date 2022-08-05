@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Gender Equality in Movie Industry."
+subtitle: "Bechdel Test."
+
+date: 2022-08-4 10:45:13 -0400
+background: '/img/bechdel/back.png'
+
+---
+
 Gender equality has been one of the hot topics for long time. There have been numerous stucdies, activities, and even law changes in order order to improve the gender equalities. Altghouh there is visible development in this regard, There is still more to do.
 
 In this project I will analyze the gender equality or improvement in the movie industry. For that purpose, Bechdel Test will be employed. The Bechdel Test is comming from the idea that Alison Bechdel introduced in a comic strip  and it has simple rules:
@@ -558,12 +568,8 @@ for f in ax.patches:
 ```
 
 
-
-![png](Bechdel_Test_files/Bechdel_Test_18_0.png)
+![png](/img/bechdel/Bechdel_Test_18_0.png)
     
-
-
-<!-- <iframe src = "/img/bechdel/graph.png" height = "350px" width = "100%"></iframe> -->
 
 
 ```python
@@ -600,7 +606,7 @@ for p in ax.patches:
 
 
 
-![png](Bechdel_Test_files/Bechdel_Test_21_0.png)
+![png](/img/bechdel/Bechdel_Test_21_0.png)
     
 
 
@@ -625,7 +631,7 @@ imdbNew
 (ggplot(data_bechdel)+geom_point(aes('year',color=data_bechdel['Bechdel Score']),stat='count',show_legend=False)+geom_line(aes('year',color=data_bechdel['Bechdel Score']),stat='count',show_legend=False))
 
 ```
-![png](Bechdel_Test_files/Bechdel_Test_25_0.png)
+![png](/img/bechdel/Bechdel_Test_25_0.png)
     
 
 
@@ -678,7 +684,7 @@ sns.scatterplot(x =data_bechdel['Bechdel Score'],
 
 
 
-![png](Bechdel_Test_files/Bechdel_Test_29_0.png)
+![png](/img/bechdel/Bechdel_Test_29_0.png)
     
 
 
@@ -776,7 +782,7 @@ p.set_xlabel('year', fontsize = 17)
 p.set_ylabel('rating', fontsize = 17)
 p.set_title('Comparison of Rating and Bechdel Score Over the Yars', fontsize = 14, color='red');
 ```
-![png](Bechdel_Test_files/Bechdel_Test_36_0.png)
+![png](/img/bechdel/Bechdel_Test_36_0.png)
     
 
 
@@ -787,7 +793,7 @@ p.set_title('Comparison of Rating and Bechdel Score Over the Yars', fontsize = 1
 # Plot year against IMDB rating and Bechdel Score:
 ggplot(new,aes(x='year',y='rating',color='Bechdel Score'))+ geom_point()+geom_smooth()+scale_y_continuous(name="imdb rating")+labs( colour='Bechdel Score' )+ ggtitle("Bechdel Score vs IMDB Rating Changes Over the Years")
 ```
-![png](Bechdel_Test_files/Bechdel_Test_38_0.png)
+![png](/img/bechdel/Bechdel_Test_38_0.png)
     
 
 
@@ -1049,7 +1055,7 @@ for p in ax.patches:
     ax.annotate('{:.1f}'.format(p.get_height()), (p.get_x()+0.3, p.get_height()+10))
 
 ```
-![png](Bechdel_Test_files/Bechdel_Test_47_0.png)
+![png](/img/bechdel/Bechdel_Test_47_0.png)
     
 
 
@@ -1069,7 +1075,7 @@ for p in ax.patches:
     ax.annotate('{:.1f}'.format(p.get_height()), (p.get_x()+0.3, p.get_height()+10))
 
 ```
-![png](Bechdel_Test_files/Bechdel_Test_50_0.png)
+![png](/img/bechdel/Bechdel_Test_50_0.png)
     
 
 
@@ -1086,7 +1092,7 @@ ggplot(data_combined,aes(x = 'year', y ='budget' ,color='Bechdel Score'))+geom_p
 
 
 
-![png](Bechdel_Test_files/Bechdel_Test_53_0.png)
+![png](/img/bechdel/Bechdel_Test_53_0.png)
     
 
 
@@ -1110,7 +1116,7 @@ geom_point()+geom_smooth()+\
 ggtitle("Bechdel Score vs Gender Changes Over the Years")
 
 ```
-![png](Bechdel_Test_files/Bechdel_Test_56_0.png)
+![png](/img/bechdel/Bechdel_Test_56_0.png)
     
 
 
@@ -1132,7 +1138,7 @@ ggplot(data_combined,aes(x = 'year', y = 'gross',color='gender'))+geom_point()+ 
 
 
 
-![png](Bechdel_Test_files/Bechdel_Test_58_0.png)
+![png](/img/bechdel/Bechdel_Test_58_0.png)
     
 
 
