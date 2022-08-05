@@ -2,8 +2,9 @@
 layout: post
 title: "Bank Churn Prediction."
 subtitle: "Bank Customer Data Analysis."
+
 date: 2022-06-7 10:45:13 -0400
-background: '/img/posts/01.jpg'
+background: '/img/bank/background.png'
 
 ---
 
