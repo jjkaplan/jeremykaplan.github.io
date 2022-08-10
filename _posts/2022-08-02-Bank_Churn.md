@@ -103,10 +103,7 @@ df.head()
 <iframe src = "/img/bank/indext.html" height = "300px" width ="100%"></iframe>
 
 
-# Explore and Analyse the Dataset 
-
-## Descriptive Statistics
-
+# Data Analysing
 
 ```python
 # let's look at the statistical aspects of the dataframe
@@ -177,6 +174,9 @@ fig.show()
 
 <iframe src = "/img/bank/file1.html" height = "600px" width ="100%"></iframe>
 
+
+Customer age distribution is normal
+
 ```python
 fig = make_subplots(
     rows=2, cols=2,subplot_titles=('','<b>Platinum Card Holders','<b>Blue Card Holders<b>','Residuals'),
@@ -225,6 +225,9 @@ fig.show()
 
 
 <iframe src = "/img/bank/file2.html" height = "690px" width ="100%"></iframe>
+
+
+Although female are more than male in dataset, the difference is not that much large to effect the distribution.
 
 ```python
 fig = make_subplots(rows=2, cols=1)
@@ -293,6 +296,8 @@ fig.show()
 print('Kurtosis of Months on book features is : {}'.format(df['Months_on_book'].kurt()))
 ```
 
+Since kurtosis is low as it clearly can be seen from graph and the result, the month as a feature is not normally distributed.
+
 ```python
 fig = make_subplots(rows=2, cols=1)
 
@@ -311,20 +316,15 @@ fig.show()
 <iframe src = "/img/bank/file8.html" height = "690px" width ="100%"></iframe>
 
 ```python
-fig = ex.pie(df,names='Attrition_Flag',title='Propotion Of Different Card Categories',hole=0.33)
+fig = ex.pie(df,names='Attrition_Flag',title='Churn Customer vs Not Churn Customer',hole=0.33)
 fig.write_html("./file14.html")
 fig.show()
 ```
 <iframe src = "/img/bank/file14.html" height = "690px" width ="100%"></iframe>
 
-```python
-## Get the continous variables into the python list num_var
-num_var = list(df.select_dtypes(exclude = ['object', 'bool']).columns)
-unwanted_var = ['CLIENTNUM','Avg_Open_To_Buy']
-num_var = [var for var in num_var if var not in unwanted_var]
-num_var
-df.columns
-```
+
+The above graph says majorty of the customers are existing customers. That means the data set is not balanced thus I will upsample the dataset to balance.
+
 ```python
 
 plt.figure(figsize = (24,170))
@@ -346,19 +346,6 @@ df_corr = df.corr(method="pearson")
 ax = sns.heatmap(df_corr, annot=True)
 ```
 ```python
-## Get the continous variables into the python list num_var
-num_var = list(df.select_dtypes(exclude = ['object', 'bool']).columns)
-unwanted_var = ['Attrition_Flag','Gender']
-num_var = [var for var in num_var if var not in unwanted_var]
-num_var
-```
-```python
-df[num_var].describe(percentiles =[.25, .50, .75, .95, .99])
-```
-
-
-
-```python
 df_copy = df.copy()
 ```
 
@@ -366,16 +353,14 @@ df_copy = df.copy()
 ```python
 df_copy.head()
 ```
-
-
-
-
 # Prepare Dataset for ML trainig
 
 
 ```python
 df_copy.columns
 ```
+Here, dummy variable will be created for some features and also unknown columns will be dropped.
+
 ```python
 # Encoding Categorical Variables
 df_copy.Attrition_Flag =df_copy.Attrition_Flag.replace({'Attrited Customer':1,'Existing Customer':0})
@@ -394,19 +379,16 @@ df_copy[df_copy.columns[:]]
 
 
 
+
+As aformentioned , it is obvious that data is imbalanced hereI use SMOTE() method to balance data.
+
 ```python
-# Here data is resampled since the data is imbalanced
+# Here data is upsampled since the data is imbalanced
 oversample = SMOTE()
 X, y = oversample.fit_resample(df_copy[df_copy.columns[1:]], df_copy[df_copy.columns[0]])
 usampled_df = X.assign(Churn = y)
 usampled_df
 ```
-```python
-usampled_df[usampled_df.columns[15:-1]].copy()
-```
-
-
-
 ```python
 ohe_data =usampled_df[usampled_df.columns[15:-1]].copy()
 
@@ -433,7 +415,7 @@ trace1 = {
 trace2 = {
     "name": "cumulative explained variance", 
     "type": "scatter", 
-     'y':cumsum_evr}
+    'y':cumsum_evr}
 data = [trace1, trace2]
 layout = {
     "xaxis": {"title": "Principal components"}, 
@@ -441,6 +423,7 @@ layout = {
   }
 fig = go.Figure(data=data, layout=layout)
 fig.update_layout(     title='Explained Variance Using {} Dimensions'.format(N_COMPONENTS))
+
 fig.write_html("./file9.html")
 fig.show()
 ```
@@ -468,20 +451,21 @@ X_train_smt,X_test_smt, y_train_smt, y_test_smt = train_test_split(X, y,test_siz
 
 ```
 
-##  Model Selection
-
 ## Tune hyperparameters for the Best Model
 
 
+Here, I will create a pipeline along with parameters for different classification model. GridSearch will be used to chose best hyperparameters among different combination of hyperparameters. 
 
 ```python
-# Parameters for Classifiers
+# HyperParameters for Tunning
 param_grid_knn = {
+# HyperParameters K Nearest Neighbors Model
 'classifier__n_neighbors': np.arange(1,19,2),
 "prep__num__imputer__strategy": ['mean','median']
 }
 
 param_grid_forest = {
+# HyperParameters for Random Forest Model
                 "classifier__n_estimators": [10, 100],
                  "classifier__max_depth":[5,8,15,25,],
                  "classifier__min_samples_leaf":[1,2,5,10,15],
@@ -490,30 +474,178 @@ param_grid_forest = {
 
 
 param_grid_logReg= {
+# HyperParameters for Logistic Regression Model
                 "classifier__penalty": ['l2'],
                  "classifier__C": np.logspace(0, 4, 10)
                  }
 param_grid_svc ={
+# HyperParameters for Support Vector Machne Model
                   'classifier__gamma': [0.01],
                   'classifier__kernel': ['linear', 'poly', 'rbf'],
                  'classifier__C': [100]
                  }
 ```
 
-## Train and Evaluate Different Model
+```python
+# Here created a function for pipline
+def pipline_model(model):
+
+    numeric_feature = ['Total_Trans_Ct','PC-3','PC-1','PC-0','PC-2','Total_Ct_Chng_Q4_Q1','Total_Relationship_Count']
+    numeric_transformer = Pipeline(steps=[
+    ('imputer',SimpleImputer(strategy= 'median')),
+    ('scaler',StandardScaler())                                      
+    ])
+    preprocessor = ColumnTransformer(transformers=[
+    ('num', numeric_transformer, numeric_feature)    
+    ])
+    clf = Pipeline(steps=[
+    ('prep', preprocessor),
+    ('classifier',model),
+    ])
+    return clf
+```
+
+```python
+# Creating a variable for pipeline_model function for each model.
+clf_svc = pipline_model(SVC(probability=True))
+clf_random_forest = pipline_model(RandomForestClassifier())
+clf_knn = pipline_model(KNeighborsClassifier())
+clf_logisticreg = pipline_model(LogisticRegression( max_iter=1000)) 
+
+```
+
+```python
+# Creating a variable for Gridsearch for each model
+grid_search_forest = GridSearchCV(clf_random_forest,param_grid,cv=10,scoring='neg_mean_squared_error')
+grid_search_knn = GridSearchCV(clf_knn,param_grid,cv=10)
+grid_search_svc = GridSearchCV(clf_svc,param_grid,refit=True,verbose=2) 
+grid_search_logReg = GridSearchCV(clf_logisticreg,param_grid,cv=10)
+```
+
+```python
+## Created a function run all four models with their pipelnes to compare their results.
+
+knn=    1
+forest= 2
+svc=    3
+logisticreg= 4
+
+def model_score(GSCV):
+    
+    
+    if GSCV == 1:
+    
+        grid_search_knn = GridSearchCV(clf_knn,param_grid,cv=10)
+        grid_search_knn.fit(X_train_smt,y_train_smt)
+        pred=grid_search_knn.predict(X_test_smt)
+        print("Confusion matrix of knn:\n ",confusion_matrix(y_test_smt,pred))
+        print("\n\n")
+        print(classification_report(y_test_smt,pred))
+        score= grid_search_knn.score(X_test_smt,y_test_smt)  
+        print('Score of knneighbors is ',score)
+        cros_val_score =  cross_val_score(clf_knn,X_train_smt, y_train_smt).mean()
+        print("Cross validation score of knneighbors is ", cros_val_score)
+
+    
+    
+    elif GSCV == 2:
+        grid_search_forest = GridSearchCV(clf_random_forest,param_grid,cv=10)
+        grid_search_forest.fit(X_train_smt,y_train_smt)
+        
+        pred=grid_search_forest.predict(X_test_smt)
+        print("Confusion matrix of random forest:\n ",confusion_matrix(y_test_smt,pred))
+        print("\n\n")
+        print(classification_report(y_test_smt,pred))
+        
+        score= grid_search_forest.score(X_test_smt,y_test_smt)
+        print('Score of random forest is ',score)
+        cros_val_score =  cross_val_score(clf_random_forest,X_train_smt, y_train_smt).mean()
+        print("Cross validation score of random forest is ", cros_val_score)
+
+    
+
+    elif GSCV == 3:
+        ggrid_search_svc = GridSearchCV(clf_svc,param_grid,refit=True,verbose=2) 
+        ggrid_search_svc.fit(X_train_smt,y_train_smt)
+        
+        pred=ggrid_search_svc.predict(X_test_smt)
+        print("Confusion matrix of SVC:\n ",confusion_matrix(y_test_smt,pred))
+        print("\n\n")
+        print(classification_report(y_test_smt,pred))
+        
+        score=  ggrid_search_svc.score(X_test_smt,y_test_smt)  
+        print('The score of svc is ',score)
+        cros_val_score =  cross_val_score(clf_svc,X_train_smt, y_train_smt).mean()
+        print("the cross validation score of SVC is ", cros_val_score)
+
+    elif GSCV == 4:
+        grid_search_logReg = GridSearchCV(clf_logteg,param_grid,cv=10)
+        grid_search_logReg.fit(X_train_smt,y_train_smt)
+        
+        pred=grid_search_logReg.predict(X_test_smt)
+        print("Confusion matrix of logisticReg :\n ",confusion_matrix(y_test_smt,pred))
+        print("\n\n")
+        print(classification_report(y_test_smt,pred))
+        
+        score=  grid_search_logReg.score(X_test_smt,y_test_smt)
+        print('The score of rlogistic regression is ',score)
+        cros_val_score =  cross_val_score(clf_logteg,X_train_smt, y_train_smt).mean()
+        print("the cross validation score of logistic regression is ", cros_val_score)
+ 
+
+```
+
+```python
+# Here I used VotingClassifier to select best model among four models.
+from sklearn.ensemble import VotingClassifier
+
+model = VotingClassifier(estimators=[('lr', grid_search_logReg), ('knn',grid_search_knn),('forest',grid_search_forest),('svc', grid_search_svc)], voting='soft')
+model.fit(X_train_smt,y_train_smt)
+
+```
+
+```python
+print(model.score(X_test_smt,y_test_smt))
+
+```
+
+Random Forest Model gives the highest result  among the models, however Votingclasiffier select Sopport Vector machine model although it is slightly smaller than Random Forest Model. Since SVM is selected, I will save this model as a reference.
+
+
+##  Model Selection
 
 
 ```python
-rf_pipe = Pipeline(steps =[ ('scale',StandardScaler()), ("RF",RandomForestClassifier(random_state=42)) ])
-knn_pipe = Pipeline(steps =[ ('scale',StandardScaler()), ("RF",KNeighborsClassifier()) ])
-svm_pipe = Pipeline(steps =[ ('scale',StandardScaler()), ("RF",SVC(random_state=42,kernel='rbf')) ])
-lreg_pipe = Pipeline(steps =[ ('scale',StandardScaler()), ("RF",(LogisticRegression( max_iter=1000))) ])
+grid_search_svc = GridSearchCV(clf_svc,param_grid_svc,refit=True,verbose=2) 
+best_model = grid_search_svc.fit(X_train_smt,y_train_smt)
+```
 
+```python
+import joblib
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
+# saving the model to local disk
+# filename = 'finalized_model.sav'
+# joblib.dump(best_model, filename)
 
-rf_f1_cross_val_scores = cross_val_score(rf_pipe,X_train_smt,y_train_smt,cv=5,scoring='f1')
-knn_f1_cross_val_scores=cross_val_score(knn_pipe,X_train_smt,y_train_smt,cv=5,scoring='f1')
-svm_f1_cross_val_scores=cross_val_score(svm_pipe,X_train_smt,y_train_smt,cv=5,scoring='f1')
-lreg_f1_cross_val_scores=cross_val_score(lreg_pipe,X_train_smt,y_train_smt,cv=5,scoring='f1')
+ 
+# load the model from local disk to use it
+loaded_model = joblib.load(filename)
+result = loaded_model.score(X_test_smt, y_test_smt)
+print(result)
+print(loaded_model.best_estimator_)
+print(loaded_model.best_score_)
+predict = loaded_model.predict(X_test_smt)
+print("accuracy ", accuracy_score(y_test_smt,predict))
+print("f1score ", f1_score(y_test_smt,predict))
+```
+
+```python
+# 
+rf_f1_cross_val_scores = cross_val_score(clf_random_forest,X_train_smt,y_train_smt,cv=5,scoring='f1')
+knn_f1_cross_val_scores=cross_val_score(clf_knn,X_train_smt,y_train_smt,cv=5,scoring='f1')
+svm_f1_cross_val_scores=cross_val_score(clf_svc,X_train_smt,y_train_smt,cv=5,scoring='f1')
+lreg_f1_cross_val_scores=cross_val_score(clf_logisticreg,X_train_smt,y_train_smt,cv=5,scoring='f1')
 ```
 
 
@@ -542,7 +674,7 @@ fig.add_trace(
 fig.update_layout(height=700, width=900, title_text="Different Model 5 Fold Cross Validation")
 fig.update_yaxes(title_text="F1 Score")
 fig.update_xaxes(title_text="Fold #")
-fig.write_html("./file15.html")
+# fig.write_html("./file15.html")
 
 fig.show()
 ```
@@ -551,17 +683,18 @@ fig.show()
 <iframe src = "/img/bank/file15.html" height = "690px" width ="100%"></iframe>
 
 ```python
-rf_pipe.fit(X_train_smt,y_train_smt)
-rf_prediction = rf_pipe.predict(X_test_smt)
+clf_random_forest.fit(X_train_smt,y_train_smt)
+rf_prediction = clf_random_forest.predict(X_test_smt)
 
-knn_pipe.fit(X_train_smt,y_train_smt)
-knn_prediction = knn_pipe.predict(X_test_smt)
+clf_knn.fit(X_train_smt,y_train_smt)
+knn_prediction = clf_knn.predict(X_test_smt)
 
-svm_pipe.fit(X_train_smt,y_train_smt)
-svm_prediction = svm_pipe.predict(X_test_smt)
+clf_svc.fit(X_train_smt,y_train_smt)
+svm_prediction = clf_svc.predict(X_test_smt)
 
-lreg_pipe.fit(X_train_smt,y_train_smt)
-lreg_prediction = lreg_pipe.predict(X_test_smt)
+clf_logisticreg.fit(X_train_smt,y_train_smt)
+lreg_prediction = clf_logisticreg.predict(X_test_smt)
+
 ```
 
 
@@ -593,10 +726,10 @@ ohe_data =df_copy[df_copy.columns[16:]].copy()
 pc_matrix = pca_model.fit_transform(ohe_data)
 original_df_with_pcs = pd.concat([df_copy,pd.DataFrame(pc_matrix,columns=['PC-{}'.format(i) for i in range(0,N_COMPONENTS)])],axis=1)
 
-unsampled_data_prediction_RF = rf_pipe.predict(original_df_with_pcs[X_features])
-unsampled_data_prediction_knn = knn_pipe.predict(original_df_with_pcs[X_features])
-unsampled_data_prediction_SVM = svm_pipe.predict(original_df_with_pcs[X_features])
-unsampled_data_prediction_LR = lreg_pipe.predict(original_df_with_pcs[X_features])
+unsampled_data_prediction_RF = clf_random_forest.predict(original_df_with_pcs[X_features])
+unsampled_data_prediction_knn = clf_knn.predict(original_df_with_pcs[X_features])
+unsampled_data_prediction_SVM = clf_svc.predict(original_df_with_pcs[X_features])
+unsampled_data_prediction_LR = clf_logisticreg.predict(original_df_with_pcs[X_features])
 ```
 
 
@@ -614,7 +747,7 @@ fig = go.Figure(data=[go.Table(header=dict(values=['<b>Model<b>', '<b>F1 Score O
                                                                          np.round(f1(unsampled_data_prediction_LR,original_df_with_pcs['Attrition_Flag']),2)]]))
                      ])
 
-fig.update_layout(title='Model Result On Original Data (Without Upsampling)')
+fig.update_layout(title='F1 Scores for Models Before Upsampling Data')
 fig.write_html("./file11.html")
 fig.show()
 ```
@@ -624,11 +757,29 @@ fig.show()
 
 
 ```python
+# Creating f1 scores of models
+score_list = [np.round(f1(unsampled_data_prediction_RF,original_df_with_pcs['Attrition_Flag']),2),
+              np.round(f1(unsampled_data_prediction_knn,original_df_with_pcs['Attrition_Flag']),2),
+             np.round(f1(unsampled_data_prediction_SVM,original_df_with_pcs['Attrition_Flag']),2),
+             np.round(f1(unsampled_data_prediction_LR,original_df_with_pcs['Attrition_Flag']),2)]
+```
+
+```python
+# Creating dataFrame for models score
+Model_Scores = pd.DataFrame([score_list],
+                      columns=[['Random Forest', 'KNN','SVM','LogisticReg']])
+
+Model_Scores.head(5)
+```
+
+From above table it is clear that without balancing data, model perfotmances are quite weak.
+
+```python
 import plotly.figure_factory as ff
-z=confusion_matrix(unsampled_data_prediction_RF,original_df_with_pcs['Attrition_Flag'])
-fig = ff.create_annotated_heatmap(z, x=['Not Churn','Churn'], y=['Predicted Not Churn','Predicted Churn'], colorscale='Fall',xgap=3,ygap=3)
+z=confusion_matrix(unsampled_data_prediction_SVM,original_df_with_pcs['Attrition_Flag'])
+fig = ff.create_annotated_heatmap(z, x=['Not Churn','Churn'], y=['Predicted Not Churn','Predicted Churn'], colorscale='Viridis',xgap=3,ygap=3)
 fig['data'][0]['showscale'] = True
-fig.update_layout(title='Prediction On Original Data With Random Forest Model Confusion Matrix')
+fig.update_layout(title='Prediction On Original Data With Support Vector Machine Model Confusion Matrix')
 fig.write_html("./file12.html")
 fig.show()
 
@@ -640,15 +791,23 @@ fig.show()
 
 ```python
 import scikitplot as skplt
-unsampled_data_prediction_RF = rf_pipe.predict_proba(original_df_with_pcs[X_features])
-skplt.metrics.plot_precision_recall(original_df_with_pcs['Attrition_Flag'], unsampled_data_prediction_RF)
+unsampled_data_prediction_SVC = clf_svc.predict_proba(original_df_with_pcs[X_features])
+skplt.metrics.plot_precision_recall(original_df_with_pcs['Attrition_Flag'], unsampled_data_prediction_SVC)
 plt.legend(prop={'size': 20})
+plt.title("Precision-Recall Curve for Support Vector Machine Model")
+
+fig.show()
 ```
+<iframe src = "/img/bank/curve.png" height = "690px" width ="100%"></iframe>
+
+
+
 # Conlusion
 
 
-In this project Bank customer churn data analyzed. There is not huge difference between the balanced and imbalnced data results. 
-One of the reasons is most probably the data size.
-Among the models, Random Forest gives best results. 
+In this project Bank customer churn data analyzed. There is huge difference between the balanced and imbalnced data results. 
+Here the importnce of resampling SMOTE() method's importance comes into play. 
+
+Another point is that despite obtaining higher result from random forest model, VotingClassfier, which select best model among introduced model, selected support vector machine model
 
 
