@@ -1151,21 +1151,14 @@ ggplot(data_combined,aes(x = 'year', y = 'gross',color='gender'))+geom_point()+ 
 
 <!-- <iframe src = "/img/bechdel/graph.png11" height = "350px" width = "100%"></iframe> -->
 
-<dv class >
-And that’s it! I managed to visualize relationships and answer all the data questions I set out to find answers to.
 
-Some interesting data findings include:
 
-1. Movies that fail the Bechdel test tend to have higher IMDB ratings.<br/>
-2. Over the years, there has been an increasing number of movies that pass the Bechdel test.<br/>
-3. Movies with female directors have higher Bechdel scores.
-4. There is no clear correlation between the budget or revenue of a movie and its Bechdel score.
-Of course, this analysis was only done with the data I gathered from three places, and might not represent the entire population of movies out there.
+From the above analysis, it can be observed that number of movies that pass the Bedchel test has been increased.
+Another result is that female directors have positive impact on movies Bedchel test performance.
+Although the Bedchel test is well-known test, it is not best one to make conclusion about the movies since there different parameters that need to be taken in consideration.
 
-Furthermore, there may have been other variables present that affected the outcome of this analysis, and it might be a good idea to experiment with data from a couple of other places before coming to a conclusion.
 
-Finally, I would like to mention that the Bechdel test is not necessarily the best benchmark to measure female representation in movies. It does not take into consideration how well written a female character is, neither does it measure meaningful depth of character.
+[Reference]('https://www.natasshaselvaraj.com/')
 
-However, it is one of the most well-known metrics used to expose gender bias and is the only test we have this kind of data on.
 
-<dv class />
+

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-10T16:45:12-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journey with Data</title><subtitle>The Deeper You Dive, The Clearer You Will See</subtitle><author><name>Jamal Kaplan</name></author><entry><title type="html">Gender Equality in Movie Industry.</title><link href="http://localhost:4000/2022/08/04/Bechdel_Test.html" rel="alternate" type="text/html" title="Gender Equality in Movie Industry." /><published>2022-08-04T07:45:13-07:00</published><updated>2022-08-04T07:45:13-07:00</updated><id>http://localhost:4000/2022/08/04/Bechdel_Test</id><content type="html" xml:base="http://localhost:4000/2022/08/04/Bechdel_Test.html"><![CDATA[<p>Gender equality has been one of the hot topics for long time. There have been numerous stucdies, activities, and even law changes in order order to improve the gender equalities. Altghouh there is visible development in this regard, There is still more to do.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-18T13:34:47-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Journey with Data</title><subtitle>The Deeper You Dive, The Clearer You Will See</subtitle><author><name>Jamal Kaplan</name></author><entry><title type="html">Gender Equality in Movie Industry.</title><link href="http://localhost:4000/2022/08/04/Bechdel_Test.html" rel="alternate" type="text/html" title="Gender Equality in Movie Industry." /><published>2022-08-04T07:45:13-07:00</published><updated>2022-08-04T07:45:13-07:00</updated><id>http://localhost:4000/2022/08/04/Bechdel_Test</id><content type="html" xml:base="http://localhost:4000/2022/08/04/Bechdel_Test.html"><![CDATA[<p>Gender equality has been one of the hot topics for long time. There have been numerous stucdies, activities, and even law changes in order order to improve the gender equalities. Altghouh there is visible development in this regard, There is still more to do.</p>
 
 <p>In this project I will analyze the gender equality or improvement in the movie industry. For that purpose, Bechdel Test will be employed. The Bechdel Test is comming from the idea that Alison Bechdel introduced in a comic strip  and it has simple rules:</p>
 <ol>
@@ -976,25 +976,11 @@ Name: rating, Length: 81, dtype: int64
 
 <!-- <iframe src = "/img/bechdel/graph.png11" height = "350px" width = "100%"></iframe> -->
 
-<dv class="">
-And that’s it! I managed to visualize relationships and answer all the data questions I set out to find answers to.
+<p>From the above analysis, it can be observed that number of movies that pass the Bedchel test has been increased.
+Another result is that female directors have positive impact on movies Bedchel test performance.
+Although the Bedchel test is well-known test, it is not best one to make conclusion about the movies since there different parameters that need to be taken in consideration.</p>
 
-Some interesting data findings include:
-
-1. Movies that fail the Bechdel test tend to have higher IMDB ratings.<br />
-2. Over the years, there has been an increasing number of movies that pass the Bechdel test.<br />
-3. Movies with female directors have higher Bechdel scores.
-4. There is no clear correlation between the budget or revenue of a movie and its Bechdel score.
-Of course, this analysis was only done with the data I gathered from three places, and might not represent the entire population of movies out there.
-
-Furthermore, there may have been other variables present that affected the outcome of this analysis, and it might be a good idea to experiment with data from a couple of other places before coming to a conclusion.
-
-Finally, I would like to mention that the Bechdel test is not necessarily the best benchmark to measure female representation in movies. It does not take into consideration how well written a female character is, neither does it measure meaningful depth of character.
-
-However, it is one of the most well-known metrics used to expose gender bias and is the only test we have this kind of data on.
-
-<dv class="" />
-</dv>]]></content><author><name>Jamal Kaplan</name></author><summary type="html"><![CDATA[Gender equality has been one of the hot topics for long time. There have been numerous stucdies, activities, and even law changes in order order to improve the gender equalities. Altghouh there is visible development in this regard, There is still more to do.]]></summary></entry><entry><title type="html">London Boroghs` House Price.</title><link href="http://localhost:4000/2022/06/07/London-Boroghs-House-Price.html" rel="alternate" type="text/html" title="London Boroghs` House Price." /><published>2022-06-07T07:45:13-07:00</published><updated>2022-06-07T07:45:13-07:00</updated><id>http://localhost:4000/2022/06/07/London%20Boroghs%60%20House%20Price</id><content type="html" xml:base="http://localhost:4000/2022/06/07/London-Boroghs-House-Price.html"><![CDATA[<h2 id="objectives">Objectives</h2>
+<p><a href="'https://www.natasshaselvaraj.com/'">Reference</a></p>]]></content><author><name>Jamal Kaplan</name></author><summary type="html"><![CDATA[Gender equality has been one of the hot topics for long time. There have been numerous stucdies, activities, and even law changes in order order to improve the gender equalities. Altghouh there is visible development in this regard, There is still more to do.]]></summary></entry><entry><title type="html">London Boroghs` House Price.</title><link href="http://localhost:4000/2022/06/07/London-Boroghs-House-Price.html" rel="alternate" type="text/html" title="London Boroghs` House Price." /><published>2022-06-07T07:45:13-07:00</published><updated>2022-06-07T07:45:13-07:00</updated><id>http://localhost:4000/2022/06/07/London%20Boroghs%60%20House%20Price</id><content type="html" xml:base="http://localhost:4000/2022/06/07/London-Boroghs-House-Price.html"><![CDATA[<h2 id="objectives">Objectives</h2>
 
 <p>Here’s we’re going to solve: <strong><em>which boroughs of London have seen the greatest increase in housing prices, on average, over the last two decades?</em></strong></p>
 
