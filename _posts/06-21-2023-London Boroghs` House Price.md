@@ -2,7 +2,7 @@
 layout: post
 title: "London Boroghs` House Price."
 subtitle: "The first step towards to Data World."
-date: 2022-06-7 10:45:13 -0400
+date: 06-21-2022
 background: '/img/london_borough/back.png'
 
 ---

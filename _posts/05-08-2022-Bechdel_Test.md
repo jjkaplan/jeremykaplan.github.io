@@ -3,7 +3,7 @@ layout: post
 title: "Gender Equality in Movie Industry."
 subtitle: "Bechdel Test."
 
-date: 2022-08-4 10:45:13 -0400
+date: 05-08-2022
 background: '/img/bechdel/back.png'
 
 ---
