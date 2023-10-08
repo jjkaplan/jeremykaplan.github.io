@@ -2,8 +2,7 @@
 layout: post
 title: "Customer Churn Prediction."
 subtitle: "Customer Data Analysis."
-
-date: 2022-06-07
+2023-06-07
 background: '/img/bank/background.png'
 ---
 
@@ -67,7 +66,7 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-%matplotlib inline
+
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 import plotly.express as ex
