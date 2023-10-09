@@ -2,7 +2,7 @@
 layout: post
 title: "Customer Churn Prediction."
 subtitle: "Customer Data Analysis."
-2023-06-07
+date: 2023-06-07
 background: '/img/bank/background.png'
 ---
 
