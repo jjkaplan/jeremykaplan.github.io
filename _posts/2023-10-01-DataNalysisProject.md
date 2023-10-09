@@ -4,7 +4,7 @@ title: "Data Analysis Project."
 subtitle: "Data Cleaning, Exploration"
 
 date: 2023-10-01
-background: '/img/bechdel/back.png'
+background: '/img/datanalysisi/data_analysis.jpeg'
 
 ---
 
